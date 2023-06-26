@@ -1,0 +1,10 @@
+127.0.0.1 - loopback ip address/localhost
+
+
+###################################################        Linux Structure		#########################################
+
+
+		Linux has 3 standard streams 						->streams basically means transfer data
+		stdin 0
+		stdout 1
+		stderr 2

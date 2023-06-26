@@ -1,0 +1,41 @@
+git init 								- initialize empty git repo in folder
+git status 								- check status
+git add . 								- add all files 
+git add 'file name'						- add single file
+git commit								- commit files 
+git remote -v							- view remote url
+git remote add origin 'url'				- add url of remote origin
+git remote rename <old> <new>			- rename branch name
+git remote remove origin				- remove connection from local to remote
+git fetch                       		- fetch changes from origin to local
+git pull								- fetch + merge means take changes in local as files
+git checkout 'branch name'				- check changes done on remote branch or checkout historical commits and then make a branch from there
+git branch								- know all existing branches
+git branch 'new branch name'			- create a new branch
+git swtich								- switch among branches
+git branch -D delete					- delete a local branch
+git push origin -d {remote_branch}		- delete remote branch
+git merge current target 				- merge changes from target into current branch
+git rebase branch_name					- change the base of our branch from one commit to another, making it appear as if we've created our branch 
+										  from a different commit 
+git diff								- shows difference betweeb current version of file and last commit
+git restore file_name					- restore file to its most recent commit
+git restore --staged filename			- unstage files from staging area
+git restore --source HEAD~N file_name	- go back to the number of commits before where head is pointing right now
+git log									- see commit hitsory
+git log --oneline						- see commit history in one line
+git reset "commit hash"					- reset the commits
+git reset "hash" --hard					- reset and change the files as well
+git revert commit hash					- revert a file to previous commit but it will remain as history
+git stash								- stash the changes you've made somewhere so that we can reuse them again
+git stash -u 							- stash untracked files
+git stash pop/apply						- bring back the changes from stash
+git stash clear
+
+git push origin 'branch-name'
+git merge 'branch name'
+git remote add upstream 'url'
+
+
+
+

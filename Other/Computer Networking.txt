@@ -1,0 +1,98 @@
+multiplexing 			- sending data in the single mode
+de-multiplexing			- opposite of above
+
+  *  transport layer attach port no on data packet , that's how other computer transport layer knows which application to send data
+  *  transport layer takes care of congestion control
+  *  checksums are attached to the data that we sent and value has be same at receiver's end in order to maintin consistency in data
+  *  timer is kind of an acknowledgenent and we use sequence number for removing duplicacy
+ 
+ 
+ Transport layer protocol: Data is transferred in segments
+ 
+	UDP-> 1. Data may not be delivered or it may change on the way 
+		  2. Data may not be in order
+		  3. It is connectionless protocol
+		  4. UDP uses checksums
+		  5. UDP packet has 2 bytes of source port no , 2 bytes of destination port no , 2 bytes of length of datagram and 2 bytes of checksum
+				total is 8 bytes and it is called header
+				we have data part from it 
+				
+		Use cases : 1. It is very fast, e.g. Gaming uses UDP
+
+	TCP-> 1. Application layer sends lot of raw data
+		  2. TCP segments the data
+		  3. It may also collect the data from network layer
+		  4. Congestion control
+		  5. Takes care of when data doesn't arrive
+		  6. Maintains the order of data using sequence number
+		
+		Features: 1. It is connection oriented
+				  2. Provides Error Control
+				  3. It is full duplex
+				  4. One TCP connection is between only two computers
+				  
+	
+	* 3 Way Hankshake
+		1. First we send syn flag and sequence number(random number)
+		2. Server will send acknowledgenent flag and do some maths on earlier sequence no and send the new sequence number
+		3. Ack no = previous seq no + 1
+		4. Client again send ack and seq no and connection is eastablished 
+		
+		
+	
+  Network Layer: Data is transferred in packets
+	1. Here we work with routers
+	2. It has routing table/forwarding table(contains one path)
+	3. Follows hoping pattern/hop by hop
+	
+	Control Plane:
+		1. It builds routing table
+		2. Routers are nodes and links are edges
+		3. We have static routing where we add everything manually
+		4. Dynamic Rotuing - It is ever evolving
+		
+		
+		
+	IP Address:
+	
+		IPv4 -> 3 bit , 4 words
+		IPv6 -> 18 bits
+		
+		192.168.10.32 		First 3 octet represents network address and last octet represents device address
+		
+							First 3 octet represents subnet ID and last octet represents host id 
+							
+							
+							
+	12.0.0.0/31 means that first 31 bits represent subnet part
+	
+	
+	
+		Packets : 
+			1. Header is of 20 bytes
+			2. Contains ipv, length, identifications number, flags , protocol, checksum, addresses, TTL (hoping ttl)
+			
+			
+			
+		IPv6 : 3.4 * 10^38
+		Not backward compatiable
+		
+		MiddleBoxes:
+		
+			1. Firewall
+			2. NAT
+
+
+	Data Link Layer ->  Data is transferred in frames
+		
+		DHCP ->   New device connect to dhcp server and it has pool of ip address and then it assigns ip to that device
+				
+				ARP - address resolution protocol
+				
+				Frames has data link address of sender and ip add of destination
+				
+				MAC address is data link layer address and it is of components and not of devices 
+				it is unique identity of network interface
+				
+				
+				Check - Framing , Error detection

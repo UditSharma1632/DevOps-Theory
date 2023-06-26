@@ -1,0 +1,202 @@
+
+			wsl --list --online  							-> find out what wsl your system supports
+
+		
+#######################################################		Basic Commands		###################################################
+1.		/home 												- where all users will be
+2.		/bin  												- where all commands or executables will be residing like cat , ls
+3.		whoami												- user name
+4.		sudo -i												- root user
+5.		file												- find out type of file
+6.		ls -lt												- show latest file with timestamp
+7.		ctrl + r 											- reverse search i.e. find out what command you executed like all ssh commands I used
+8. 		man command_name									- manual of a command
+9.		whatis command_name									- tells about command
+10.		sudo apt-get upgrade								- Actually upgrade
+11.		ls -l												- shows results of ls command in long list
+
+
+
+#######################################################		File copy, move and delete	###################################
+
+1.		mkdir												- create directory
+2.		mkdir -p											- create dir structure
+3.		touch												- create empty file or update timestamp
+4.		cp file_name source_dir dest_dir					- copy files
+5.		cp -r sr dest 										- copy dir to dir
+6.		mv * dir											- move everything with extension to another dir
+7.		mv file_name ../									- move a file to previous dir
+8.		rm -r /mytemp										- remove a dir which is not empty
+9.		rm -rv /mytemp										- remove a dir which is not empty while showing what it removed
+10.		cd - vs cd .. 										- previous dir vs parent dir
+
+
+
+#######################################################		Standard Stream and File Manipulation	#################################
+
+1.		ls > output.txt										- It will save the output of ls command in output.txt in current dir
+2.		ls >> output.txt									- Also append the result of above command
+3.		lg 2> /dev/null									    - executing wrong command and sending out to null as everything into /dev/null will be null
+4.		less /var/log/syslog								- opens file in separate window and press q to quit
+5.      ls -la /etc | less 									- opens output of this command in separate window
+6.      ls /usr/bin | less 									- Open the commands which are stored in here in separate window
+7.      head -n 15 file_name 								- First 10 lines of any file, by default it will show only 10
+8.      tail -n 15 file_name 								- Last 10 lines of any file, by default it will show only 10
+9.      sort -r file_name									- sort a file in reverse order, remove r to sort aplhabatically
+
+
+
+#######################################################		User Management & Permissions	###########################################
+
+1.		echo ~												- Displays current user's home dir
+2.		sudo su 											- It will make a user, superuser/root  -> Not recommended
+3.		cat /etc/sudoers									- List the people who can access sudo command
+4.		cat /etc/passwd										- This wll show data of all users in the system
+5.		cat /etc/shadow										- Here root user password is stored in encypted form
+
+				Understanding 			cat /etc/passwd						root:x:0:0:root:/root:/bin/bash
+																			 1   2 3 4   5    6     7
+				1. Username
+				2. Password   										if pswd is x it means it is stored in /etc/shadow and it can be encrypted 
+				3. userID
+				4. groupID
+				5. userInfo
+				6. user's home directory
+				7. shell
+				
+				
+				Understanding			cat /etc/shadow						root:*:19472:0:99999:7:::
+																			1    2  3    4  5    6 7 8 9
+				1. username
+				2. encrypted passwd
+				3. date of last passwd changed since 1st Jan 1970
+				4. min passwd age
+				5. max passwd age
+				6. warning period to change your period
+				7. Password expiry period
+				8. Account expiry period
+				9. reserved field
+				
+				cat /etc/passwd | grep -vE '(/bin/false|/sbin/nologin|/bin/sync)' | cut -d: -f1   - list all users
+
+6.		cat /etc/group										- File for Groups information
+7.		sudo useradd user_name								- Adds a user
+8.		sudo userdel user_name								- deletes a user
+9.		sudo passwd											- update the password of a user
+10.		sudo hostname new_name								- update your hostname
+	
+				Understanding		drwxr-xr-x
+									0123456789
+				1st - directory
+				2nd - rwx
+				3rd - rwx
+				4th - rwx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#######################################################		Search, Find 				###########################################
+
+
+1.		grep -i your_word filepath 							- search for a word in a file and ignorecase
+2.		grep -i your_word filepath *						- search for a word in current dir
+3.		grep -vi your_word filepath * 						- show everything else but your_word
+4.		find / -type d -name dir_name						- find where a folder is 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ln -s												- create link among files
+unlink												- unlink the link b/w file
+
+head -3												- shows first 3 lines of a file
+tail												- reverse
+cut -d: -f1 /etc/passwd								- show first column of a segregatted file, here d is delimitere and f in field number
+awk -F':' '{print $1}' /etc/passwd					- search with awk
+%s/current/new										- find and replace only first text in a line in vim
+%s/current/new/g									- find and replace globally in a line in vim
+sed -i 's/current/new/g' mydevops11.txt *			- same
+command > destination								- save result ro file instead of displaying
+dev/null											- anything thrown here will be null
+su - username										- change to this user
+lsof -u username									- find out what files user opened
+
+              
+
+
+
+
+
+
+
+
+
+
+
+vim editor: 
+		:se nu - it will set numbers
+		gg     - move to first line
+		G      - move to last line
+		yy	   - copy some line
+		p	   - paste the line
+	   4yy     - copy 4 lines
+	    u      - undo
+		dd     - delete
+		5dd    - delete 5 lines
+		yyp    - copy paste
+		ddp    - cut paste
+        /      - search then type n to go to next occurance
+
+
+
+apt-get update   - update ubuntu

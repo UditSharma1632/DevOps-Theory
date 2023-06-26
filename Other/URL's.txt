@@ -1,0 +1,15 @@
+Mongo Cluster
+	mongodb+srv://UdSharma:ClusterPassword@cluster1.mqvlg3u.mongodb.net/?retryWrites=true&w=majority
+
+Url's
+	1. https://stackoverflow.com/questions/33869606/intellij-15-springboot-devtools-livereload-not-working
+	2. https://stackoverflow.com/questions/57784287/how-to-install-nginx-on-aws-ec2-linux-2
+	3. https://superuser.com/questions/90008/how-to-clear-the-contents-of-a-file-from-the-command-line
+	4. https://phoenixnap.com/kb/how-to-vim-save-quit-exit
+	5. https://devopscube.com/become-devops-engineer/
+
+
+
+Defog tech channel
+
+

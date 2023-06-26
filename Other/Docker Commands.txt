@@ -1,0 +1,225 @@
+docker run -itd --name ansible_master ubuntu bin/bash  - create container
+
+docker run --privileged -v /sys/fs/cgroup:/sys/fs/cgroup -it -p 8086:8086 --name mixed centos/systemd /usr/sbin/init
+
+docker exec -it <container name> /bin/bash
+
+apt update ; apt install python ansible openssh-client vim iputils-ping -y                    - packages
+
+apt-get install ssh	
+
+docker network inspect bridge
+
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name>
+
+ssh-keygen   -  generate key
+
+ssh-keygen -R 172.17.0.5
+
+ssh-copy-id root@ip of node
+
+ansible -m ping 172.17.0.2
+
+docker run -d -p 8081:8081 --name nexus sonatype/nexus3  
+
+docker run -id -p 8111:8111 --name nexus102 nexus /bin/bash
+
+docker jenkins = Udit Devops@2021
+
+docker attach container_id    - go inside container
+
+service ssh start
+
+service sshd reload
+
+service --status-all
+
+systemctl enable sshd.service
+
+systemctl status sshd.service
+
+apt install vim ssh python -y
+
+ssh-keygen -y -P "" -f ~/.ssh/id_rsa
+
+cd ~/.ssh
+
+docker commit node ubuntu_systemd
+
+
+
+
+node {
+    stage('Preparation') { // for display purposes
+        // Get some code from a GitHub repository and see if poll scm is working or not
+        git 'https://github.com/UditSharma1632/pipeline.git'
+        
+    }
+    stage('Build and Package') {
+                sh "mvn clean package"
+    }
+     
+    stage('Nexus') {
+        nexusArtifactUploader artifacts: [[artifactId: 'demo', classifier: '', file: 'target/demo-0.0.1.jar', type: 'jar']],
+            credentialsId: 'nexus3', groupId: 'com.example', nexusUrl: 'host.docker.internal:8110', 
+            nexusVersion: 'nexus3', protocol: 'http', repository: 'full-pipeline', version: '0.0.1'
+    }
+    
+    
+    stage('Executing Playbook') { 
+                ansiblePlaybook (credentialsId: 'id_rsa', disableHostKeyChecking: true,
+                                 installation: 'ansible', inventory: 'inventory.inv', playbook: 'playbook.yml')
+        
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+vpc 1
+subnet 2
+public private subnet
+security groups
+Acl
+policy sets
+IAM groups and users
+ec2
+s3
+ebs
+efs
+
+
+
+
+
+
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean test package
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - target/download/demo-latest-0.0.1.jar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
