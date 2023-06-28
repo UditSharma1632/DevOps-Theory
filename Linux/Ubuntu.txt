@@ -54,30 +54,33 @@
 4.		cat /etc/passwd										- This wll show data of all users in the system
 5.		cat /etc/shadow										- Here root user password is stored in encypted form
 
-				Understanding 			cat /etc/passwd						root:x:0:0:root:/root:/bin/bash
-																			 1   2 3 4   5    6     7
-				1. Username
-				2. Password   										if pswd is x it means it is stored in /etc/shadow and it can be encrypted 
-				3. userID
-				4. groupID
-				5. userInfo
-				6. user's home directory
-				7. shell
 				
 				
-				Understanding			cat /etc/shadow						root:*:19472:0:99999:7:::
-																			1    2  3    4  5    6 7 8 9
-				1. username
-				2. encrypted passwd
-				3. date of last passwd changed since 1st Jan 1970
-				4. min passwd age
-				5. max passwd age
-				6. warning period to change your period
-				7. Password expiry period
-				8. Account expiry period
-				9. reserved field
-				
-				cat /etc/passwd | grep -vE '(/bin/false|/sbin/nologin|/bin/sync)' | cut -d: -f1   - list all users
+							Understanding 			cat /etc/passwd						root:x:0:0:root:/root:/bin/bash
+																						 1   2 3 4   5    6     7
+							1. Username
+							2. Password   										if pswd is x it means it is stored in /etc/shadow and it can be encrypted 
+							3. userID
+							4. groupID
+							5. userInfo
+							6. user's home directory
+							7. shell
+							
+							
+							Understanding			cat /etc/shadow						root:*:19472:0:99999:7:::
+																						1    2  3    4  5    6 7 8 9
+							1. username
+							2. encrypted passwd
+							3. date of last passwd changed since 1st Jan 1970
+							4. min passwd age
+							5. max passwd age
+							6. warning period to change your period
+							7. Password expiry period
+							8. Account expiry period
+							9. reserved field
+							
+							cat /etc/passwd | grep -vE '(/bin/false|/sbin/nologin|/bin/sync)' | cut -d: -f1   - list all users
+							
 
 6.		cat /etc/group										- File for Groups information
 7.		sudo useradd user_name								- Adds a user
@@ -87,10 +90,17 @@
 	
 				Understanding		drwxr-xr-x
 									0123456789
-				1st - directory
-				2nd - rwx
-				3rd - rwx
-				4th - rwx
+				1st - directory				sometime there is l, which is link and - represnts file
+				2nd - rwx  					user permissions
+				3rd - r-x					group permission
+				4th - r-x					other
+				
+				r -> 4,		w  -> 2,  x  ->1
+				
+11.		chmod o+w file_name									- giving write permission to other user , user - to remove permission
+12.		chmod ugo+rwx file_name								- giving every permission to everyone
+13. 	chmod +713											- adding permission rwx for user, --x for group, -wx for others
+
 
 
 
