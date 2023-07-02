@@ -59,7 +59,7 @@
 							Understanding 			cat /etc/passwd						root:x:0:0:root:/root:/bin/bash
 																						 1   2 3 4   5    6     7
 							1. Username
-							2. Password   										if pswd is x it means it is stored in /etc/shadow and it can be encrypted 
+							2. Password   										if pswd is x it means it is stored in /etc/shadow and it might be encrypted 
 							3. userID
 							4. groupID
 							5. userInfo
@@ -100,7 +100,52 @@
 11.		chmod o+w file_name									- giving write permission to other user , user - to remove permission
 12.		chmod ugo+rwx file_name								- giving every permission to everyone
 13. 	chmod +713											- adding permission rwx for user, --x for group, -wx for others
+13. 	chmod -023 file_name								- updating permissions -> removing nothing from user, w permission from group, wx from others
+14.		sudo chown user_name file_name						- Change owner of a file
+15.		sudo chgrp group_name file_name						- Change group of a file
+16.		umask 033											- it will change default permissions
+17.		setuid/setgid										- set user/group id
 
+
+
+
+
+
+
+################################################################ Processes in Linux ##############################################################
+
+1.		ps													- list the running processes, generally ran by current user
+2.		top													- real time data
+3.		ps aux												- list the running processes -> a : all the process by every user
+																							u : detailed
+																							x : list all the process which might not have terminal with them
+4.		nice/renice											- change the nice value of a process
+5.		ls /proc											- list the details of process
+6.		python3 file_name &									- run a process in background, here this file is a python file
+
+
+													PID TTY          TIME CMD					
+													19 pts/1    00:00:00 bash
+													
+													PID 	- process id
+													TTY 	- Controlling time
+													Time 	- CPU usage time
+													CMD 	- command 
+															
+											USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+											root         1  0.0  0.0   4620  3744 pts/0    Ss+  Jul01   0:00 /bin/bash
+											
+											User 	- owner of process
+											PID		- process id
+											CPU     - how much time cpu is giving to this process
+											MEM		- percentage of memory used
+											VSZ		- amount of memeory, process had been allocated when it was initialized first(Max mem available)
+											RSS		- amount of memeory, process is using
+											TTY		- ? means no terminal associoated
+											STAT	- status
+											START	- when user started this process
+											Time 	- CPU usage time
+											CMD 	- command 
 
 
 
@@ -169,8 +214,6 @@
 ln -s												- create link among files
 unlink												- unlink the link b/w file
 
-head -3												- shows first 3 lines of a file
-tail												- reverse
 cut -d: -f1 /etc/passwd								- show first column of a segregatted file, here d is delimitere and f in field number
 awk -F':' '{print $1}' /etc/passwd					- search with awk
 %s/current/new										- find and replace only first text in a line in vim
