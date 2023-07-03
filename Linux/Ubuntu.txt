@@ -26,8 +26,8 @@
 5.		cp -r sr dest 										- copy dir to dir
 6.		mv * dir											- move everything with extension to another dir
 7.		mv file_name ../									- move a file to previous dir
-8.		rm -r /mytemp										- remove a dir which is not empty
-9.		rm -rv /mytemp										- remove a dir which is not empty while showing what it removed
+8.		rm -r dir_name										- remove a dir which is not empty
+9.		rm -rv dir_name										- remove a dir which is not empty while showing what it removed
 10.		cd - vs cd .. 										- previous dir vs parent dir
 
 
@@ -146,12 +146,45 @@
 											START	- when user started this process
 											Time 	- CPU usage time
 											CMD 	- command 
+											
+							
+#######################################################  Linux filesystem  ###################################################################
+
+1.		df -T												 - list filesystem
+2.		sudo parted -l 										 - info about partitions
+3.		cat /etc/fstab										 - mounted file system information
+4.		df -h 												 - shows utilization of currently mopunted system (h is human readable)
+5.		du -h												 - disk utilization of everything(perform in current directory, please)
+6.		df -i 												 - shows no of inodes avaiable
+7.		ls -li 												 - regular ls -l where we want to see inode as well using i here
+8.		stat dir_name 										 - detailed info about a directory
+9.		ln -s file_name link_name							 - create a soft link(-s) of a file
+10.		ln file_name link_name							 	 - create a hard link of a file and remember 2nd column in ls -l represents number of hard links
 
 
+				Desktop File systems
+					1. ext4
+					2. Btrfs - Butter/better FS
+					3. XFS
+					4. NTFS & FAT - windows
+					5. HFST - Mac
+					
+				Partitons
+					There are 2 main partition schemes
+						1. MBR - Master boot record (Max 4 primary partition)
+						2. GPT - GUID Partiton table (Globally unique id)
+						
+				File System Structure
+					1. Boot block
+					2. Super block
+					3. Inode Table
+					4. Data Blocks
 
 
+				Inode - Index node , we can say inode number decides how many directories we can have in a file system
+					
 
-
+	
 
 
 

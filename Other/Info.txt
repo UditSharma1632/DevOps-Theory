@@ -1,5 +1,7 @@
 127.0.0.1 - loopback ip address/localhost
 
+ctrl + alt + o to remove unused imports in intelliJ
+
 
 ###################################################        Linux Structure		#########################################
 
@@ -8,3 +10,16 @@
 		stdin 0
 		stdout 1
 		stderr 2
+		
+		
+		Pipe |   -> redirects
+		
+		Process access information through env variables
+		
+		
+		1.	All processes are managed by kernel and they have unique process id.
+		2.  init is the mother process of all processes
+		
+		
+		
+		-> Symlinks , Aliases, Shortcut
