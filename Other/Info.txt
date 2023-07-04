@@ -23,3 +23,55 @@ ctrl + alt + o to remove unused imports in intelliJ
 		
 		
 		-> Symlinks , Aliases, Shortcut
+		
+		
+	#######################################  Boot process  #############################	
+		
+					Boot Process:
+					
+						1. BIOS - Basic input output system
+						2. BootLoader     (GRUB is most common)
+						3. Kernel -> initializes memory & device and loads init process
+						4. init   -> it is mother process
+									
+			
+			
+							3 level of abstraction in linux os
+							
+								1. Hardware -> cpu, memory, ports
+								2. Kernel
+								3. user space
+								
+								
+								
+								
+							Privilege level           (protection ring)
+								kernel -> kernel mode
+								User   -> user mode 
+										User uses system (sys) calls to request kernel to perform an action on hardware
+										
+										
+							
+							Init implementation:
+							
+								1. System v - traditional
+								2. Upstart - old
+								3. Systemd - mnew
+								
+								
+									system v -> starts and stops processes sequentially
+									upstart  -> uses events and jobs model
+												jobs   -> actions performed
+												events -> messages received from other processes that triggered the job
+									systemd  -> uses goals to get system up and running
+									
+									working of systemd
+										1. Loads config files from /etc/systemd and /lib/systemd/system
+												  -> default.target has all the targets/goals
+												  
+												  Targets:
+													1. poweroff.target   -> shutdown
+													2. rescue.target	 -> single user
+													3. multi-user.target -> multi users with networking
+													4. garphical.target  -> multi user with networking and GUI
+													5. reboot.target	 -> reboot
